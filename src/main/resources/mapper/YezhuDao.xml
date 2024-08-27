@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.YezhuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.YezhuEntity" id="yezhuMap">
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="xingming" column="xingming"/>
+        <result property="shouji" column="shouji"/>
+        <result property="xingbie" column="xingbie"/>
+        <result property="touxiang" column="touxiang"/>
+        <result property="zhuzhi" column="zhuzhi"/>
+        <result property="shenfenzheng" column="shenfenzheng"/>
+        <result property="fangchanzheng" column="fangchanzheng"/>
+        <result property="pquestion" column="pquestion"/>
+        <result property="panswer" column="panswer"/>
+        <result property="sfsh" column="sfsh"/>
+        <result property="shhf" column="shhf"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.YezhuView" >
+
+		SELECT  yezhu.* FROM yezhu  yezhu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.YezhuView" >
+		SELECT * FROM yezhu  yezhu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.BaoxiuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.BaoxiuEntity" id="baoxiuMap">
+        <result property="baoxiubiaoti" column="baoxiubiaoti"/>
+        <result property="baoxiumiaoshu" column="baoxiumiaoshu"/>
+        <result property="baoxiuzhuangtai" column="baoxiuzhuangtai"/>
+        <result property="youxianji" column="youxianji"/>
+        <result property="baoxiushijian" column="baoxiushijian"/>
+        <result property="tupian" column="tupian"/>
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="xingming" column="xingming"/>
+        <result property="shouji" column="shouji"/>
+        <result property="zhuzhi" column="zhuzhi"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.BaoxiuView" >
+
+		SELECT  baoxiu.* FROM baoxiu  baoxiu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.BaoxiuView" >
+		SELECT * FROM baoxiu  baoxiu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
